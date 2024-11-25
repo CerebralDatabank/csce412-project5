@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CerebralDatabank's TAMU Website</title>
+    <link href="gogo.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body style="font-family: 'Segoe UI', 'Arial', sans-serif;">
+    <h1>CerebralDatabank's TAMU Website</h1>
+    <p>Main website: <a href="https://cerebraldatabank.neocities.org/" target="_blank">https://cerebraldatabank.neocities.org/</a></p>
+    <p>Links:</p>
+    <ul>
+      <li><a href="https://github.com/CerebralDatabank" target="_blank">My GitHub profile</a></li>
+      <li><a href="https://cerebraldatabank.neocities.org/gopalos.html" target="_blank">GopalOS</a></li>
+    </ul>
+    <p>My projects (or links to them) can all be found on my main website :)</p>
+    <p><a class="gogo-btn gogo-blue-btn" href="https://cerebraldatabank.neocities.org/" target="_blank">Take me there!</a></p>
+  </body>
+</html>

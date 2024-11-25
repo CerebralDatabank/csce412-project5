@@ -1,0 +1,360 @@
+:root {
+  --accent: #008000;
+  --accent-dark: #006000;
+  --accent-darker: #004000;
+  --accent-bg: #DDFFDD;
+  --font-main: 16px "Segoe UI", "Arial", sans-serif;
+  --simon-highlight-click: #05F;
+  --simon-highlight-correct: #0C0;
+  --simon-highlight-gameover: #F00;
+}
+
+body {
+  font-family: "Segoe UI", "Arial", sans-serif;
+  background: fixed no-repeat right -200px bottom -300px / 800px url("rotator.svg"), var(--accent-bg);
+  transition: background 100ms;
+}
+
+.thumping {
+  animation: 800ms linear 0s infinite normal both running thumping;
+  overflow: hidden;
+}
+
+@keyframes thumping {
+  0% {transform: translate(5px, 0);}
+  3% {transform: translate(-5px, 5px);}
+  6% {transform: translate(0, -5px);}
+  9% {transform: translate(-5px, 5px);}
+  12% {transform: translate(5px, 5px);}
+  15% {transform: none;}
+  100% {transform: none;}
+}v
+
+main {
+  padding: 10px;
+}
+
+header {
+  height: 50px;
+  border-bottom: 2px solid #00600080;
+  padding-bottom: 10px;
+}
+
+nav ul li {
+  list-style: none;
+  background: transparent;
+  border: 2px solid var(--accent-dark);
+  border-radius: 4px;
+  color: var(--accent-dark);
+  cursor: pointer;
+  text-align: center;
+  float: left;
+  transition: background 200ms, color 200ms;
+}
+
+nav ul li:hover,
+nav ul li:active,
+.nav-selected {
+  background: var(--accent-dark);
+  color: #FFF;
+}
+
+nav ul li:active {
+  transform: scale(0.9);
+}
+
+nav ul li a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  width: 100px;
+  padding: 10px;
+}
+
+nav ul li:not(:first-child) {
+  margin-left: 10px;
+}
+
+.btn {
+  background: var(--accent);
+  border: 1px solid var(--accent-dark);
+  color: #FFF;
+  border-radius: 8px;
+  min-width: 100px;
+  height: 40px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  font: var(--font-main);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+.btn:hover {
+  background: var(--accent-dark);
+}
+
+.btn:active {
+  background: var(--accent-darker);
+}
+
+.btnbar {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#logo {
+  position: relative;
+  width: 700px;
+  height: 350px;
+  display: inline-block;
+}
+
+#logo_0:not(.logo-g-party), #logo_1:not(.logo-g-party) {
+  stroke: green;
+}
+
+.logo-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+.centered {
+  text-align: center;
+}
+
+.underlined {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+hr {
+  border: 1px solid #006000;
+}
+
+section {
+  display: none;
+}
+
+.sec-shown {
+  display: block;
+}
+
+#style_switch_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  color: var(--accent-dark);
+  border: 2px solid var(--accent-dark);
+  border-radius: 25px;
+  font: 12px "Segoe UI";
+}
+
+#style_switch_btn:hover {
+  background: var(--accent-dark);
+  color: #FFF;
+}
+
+#style_switch_btn:active {
+  transform: scale(0.9) rotateX(15deg);
+}
+
+#hello_msg_1, #hello_msg_2 {
+  font-size: 40px;
+  color: #006000;
+  transition: color 100ms;
+}
+
+#hello_msg_1 {
+  transform: translate(0, 50px);
+}
+
+#hello_msg_2 {
+  margin-top: 20px;
+  transition: opacity 500ms, transform 500ms;
+  margin-bottom: 30px;
+  animation: 200ms ease-in 2500ms 1 normal both running fadein;
+}
+
+@keyframes fadein {
+  0% {opacity: 0; transform: scale(2);}
+  100% {opacity: 1; transform: none;}
+}
+
+.cards, .cards2 {
+  display: grid;
+  grid-template: repeat(auto-fill, 320px) / repeat(auto-fill, 320px);
+  gap: 20px;
+}
+
+.card, .card2 {
+  display: inline-block;
+  padding: 0;
+  background: var(--accent-bg);
+  border-radius: 16px;
+  border: none;
+  width: 320px;
+  height: 320px;
+  margin: auto 10px 10px auto;
+  box-shadow: 0 2px 10px 2px #555;
+  transition: box-shadow 300ms, transform 300ms;
+  position: relative;
+}
+
+.card:nth-child(1):not(.simon), .card2 {animation: 300ms ease-in 0s 1 normal backwards running spinin;}
+.card:nth-child(2):not(.simon), .card2 {animation: 300ms ease-in 30ms 1 normal backwards running spinin;}
+.card:nth-child(3):not(.simon), .card2 {animation: 300ms ease-in 60ms 1 normal backwards running spinin;}
+.card:nth-child(4):not(.simon), .card2 {animation: 300ms ease-in 90ms 1 normal backwards running spinin;}
+.card:nth-child(5):not(.simon), .card2 {animation: 300ms ease-in 120ms 1 normal backwards running spinin;}
+
+@keyframes spinin {
+  0% {opacity: 0; transform: rotate(-30deg) scale(1.1);}
+  100% {opacity: 1; transform: none;}
+}
+
+.card:hover, .card2:hover {
+  box-shadow: 0 5px 20px 5px #555;
+}
+
+.card:nth-child(odd):hover, .card2:nth-child(odd):hover {
+  transform: translate(0, -5px) rotate(1deg);
+}
+
+.card:nth-child(even):hover, .card2:nth-child(even):hover {
+  transform: translate(0, -5px) rotate(-1deg);
+}
+
+.card h3, .card2 h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.card p, .card2 p {
+  width: 200px;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0;
+}
+
+.card img, .card2 img {
+  border-radius: 16px 16px 0 0;
+  width: 320px;
+}
+
+.card .btn, .card2 .btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.card .card-content, .card2 .card-content {
+  padding: 5px 0 10px 10px;
+  font-size: 14px;
+}
+
+.twocol-wrapper {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
+  gap: 20px;
+  text-align: center;
+}
+
+.twocol .btnbar {
+  justify-content: center;
+}
+
+.partyframe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  animation: 500ms linear 0s 1 normal both running partyframe;
+}
+
+@keyframes partyframe {
+  0% {transform: none; opacity: 1;}
+  100% {transform: scale(0); opacity: 0;}
+}
+
+.logo-party {
+  animation: 400ms linear 200ms infinite alternate none running logo-party;
+}
+
+@keyframes logo-party {
+  0% {transform: none;}
+  100% {transform: scale(1.2);}
+}
+
+.half-width {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.text-centered {
+  text-align: center;
+  justify-content: center;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.hover-hidden {
+  transition: opacity 1s;
+  cursor: help;
+}
+
+.simon-highlight {
+  animation: 500ms ease-in 0s 1 normal both running simon-highlight;
+}
+
+@keyframes simon-highlight {
+  0% {background: inherit;}
+  50% {background: var(--simon-highlight-click);}
+  100% {background: inherit;}
+}
+
+.simon-highlight-correct {
+  animation: 700ms ease-in 0s 1 normal both running simon-highlight-correct;
+}
+
+@keyframes simon-highlight-correct {
+  0% {background: inherit;}
+  50% {background: var(--simon-highlight-correct);}
+  100% {background: inherit;}
+}
+
+.simon-highlight-gameover {
+  animation: 700ms ease-in 0s 1 normal both running simon-highlight-gameover;
+}
+
+@keyframes simon-highlight-gameover {
+  0% {background: inherit;}
+  50% {background: var(--simon-highlight-gameover);}
+  100% {background: inherit;}
+}
+
+.heading-title {
+  margin-bottom: 0;
+}
+
+.heading-subtitle {
+  margin: 0 auto 15px 0;
+}
